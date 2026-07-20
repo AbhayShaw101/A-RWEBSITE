@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | A&amp;R Group – Building Dreams Since 1990</title>
+  <meta name="description"
+    content="Discover the story behind A&amp;R Group – three decades of building luxury residences, a visionary leadership team, and a commitment to quality that defines every project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ========== ABOUT PAGE SPECIFIC STYLES ========== */
+
+    /* Page Hero Banner */
+    .about-hero {
+      position: relative;
+      height: 55vh;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 40%, #2a2520 100%);
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 80% 20%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--white), transparent);
+      pointer-events: none;
+    }
+
+    .about-hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .about-hero-content .overline {
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
+    }
+
+    .about-hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-hero-content h1 .accent {
+      display: block;
+    }
+
+    .about-hero-content p {
+      max-width: 560px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* Decorative grid lines in hero */
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+    }
+
+    .hero-grid-lines span {
+      position: absolute;
+      background: var(--white);
+    }
+
+    .hero-grid-lines .vl1 { left: 20%; top: 0; bottom: 0; width: 1px; }
+    .hero-grid-lines .vl2 { left: 50%; top: 0; bottom: 0; width: 1px; }
+    .hero-grid-lines .vl3 { left: 80%; top: 0; bottom: 0; width: 1px; }
+    .hero-grid-lines .hl1 { top: 33%; left: 0; right: 0; height: 1px; }
+    .hero-grid-lines .hl2 { top: 66%; left: 0; right: 0; height: 1px; }
+
+    /* Our Story Section */
+    .story-section {
+      background: var(--white);
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .story-text .overline {
+      margin-bottom: 0.75rem;
+    }
+
+    .story-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .story-text p {
+      color: #555049;
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-visual {
+      position: relative;
+    }
+
+    .story-image-frame {
+      position: relative;
+      background: var(--gray-bg);
+      padding: 2rem;
+    }
+
+    .story-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--orange);
+      z-index: -1;
+    }
+
+    .story-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+
+    .story-year-badge {
+      position: absolute;
+      bottom: -24px;
+      left: 2rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .story-year-badge span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      color: var(--orange);
+      margin-top: 0.25rem;
+    }
+
+    /* Vision & Mission */
+    .vm-section {
+      background: var(--gray-bg);
+    }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .vm-card {
+      background: var(--white);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .vm-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    }
+
+    .vm-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .vm-card-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .vm-card-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .vm-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .vm-card p {
+      color: #555049;
+      line-height: 1.85;
+      font-size: 0.95rem;
+    }
+
+    /* Leadership */
+    .leadership-section {
+      background: var(--white);
+    }
+
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .leader-card {
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .leader-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .leader-avatar {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.5rem;
+      background: var(--gray-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      position: relative;
+      overflow: hidden;
+      border: 3px solid transparent;
+      transition: var(--transition);
+    }
+
+    .leader-card:hover .leader-avatar {
+      border-color: var(--orange);
+    }
+
+    .leader-avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, transparent 60%, rgba(201, 168, 76, 0.15));
+    }
+
+    .leader-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .leader-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .leader-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* Core Values */
+    .values-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .values-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border: 60px solid rgba(201, 168, 76, 0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .values-section .section-title {
+      color: var(--white);
+    }
+
+    .values-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .value-card:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .value-card h4 {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-card p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    /* CTA Banner */
+    .about-cta {
+      background: var(--gray-bg);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .about-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .about-cta .btn-primary {
+      margin-top: 2rem;
+    }
+
+    /* ========== ABOUT PAGE RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .story-image-frame::before {
+        display: none;
+      }
+
+      .vm-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leaders-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-hero {
+        height: 45vh;
+        min-height: 320px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header id="header" class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" id="logo-link">
+        <img src="logo.png.png" alt="A&R Real Estate Logo" class="logo-img" />
+      </a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html#projects" class="nav-link" id="nav-projects">PROJECTS</a>
+        <a href="about.html" class="nav-link" id="nav-about">ABOUT</a>
+        <a href="index.html#blog" class="nav-link" id="nav-blog">BLOG</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="index.html#enquiry" class="btn-outline" id="btn-enquiry">ENQUIRY</a>
+        <a href="https://wa.me/919836321215" class="btn-outline" id="btn-whatsapp" target="_blank">WHATSAPP</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== ABOUT HERO ========== -->
+  <section class="about-hero" id="about-hero">
+    <div class="hero-grid-lines">
+      <span class="vl1"></span>
+      <span class="vl2"></span>
+      <span class="vl3"></span>
+      <span class="hl1"></span>
+      <span class="hl2"></span>
+    </div>
+    <div class="about-hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <p class="overline">SINCE 1990</p>
+      <h1>Building Dreams,<br><span class="accent">Creating Legacies</span></h1>
+      <p>Three decades of redefining luxury living across India — one family, one home, one landmark at a time.</p>
+    </div>
+  </section>
+
+  <!-- ========== OUR STORY ========== -->
+  <section class="section story-section" id="our-story">
+    <div class="container">
+      <div class="story-layout">
+        <div class="story-text" data-aos="fade-right">
+          <p class="overline">Our Story</p>
+          <h2>A Legacy Rooted in Excellence</h2>
+          <p>Founded in 1990, A&amp;R Group began as a small family-driven venture in Kolkata with a singular vision: to
+            build homes that outlast generations. What started with a handful of residential projects has grown into one
+            of India's most trusted real estate brands, spanning six cities and thousands of happy families.</p>
+          <p>Our founders believed that a home is more than four walls — it's a promise. A promise of quality,
+            transparency, and timeless craftsmanship. That belief remains at the core of everything we do, from the
+            materials we source to the communities we create.</p>
+          <p>Today, with over 150 completed projects and partnerships with leading architects and planners, A&amp;R Group
+            stands as a symbol of trust, innovation, and enduring value in Indian real estate.</p>
+        </div>
+        <div class="story-visual" data-aos="fade-left">
+          <div class="story-image-frame">
+            <img src="hero_building.png" alt="A&amp;R Group flagship project" class="story-img" />
+            <div class="story-year-badge">
+              1990
+              <span>ESTABLISHED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VISION & MISSION ========== -->
+  <section class="section vm-section" id="vision-mission">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="overline">Guiding Principles</p>
+        <h2 class="section-title">Vision & Mission</h2>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="vm-card-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="14" cy="14" r="12" stroke="#C9A84C" stroke-width="2" />
+              <circle cx="14" cy="14" r="6" stroke="#C9A84C" stroke-width="2" />
+              <circle cx="14" cy="14" r="2" fill="#C9A84C" />
+            </svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be the most trusted name in Indian real estate — known for building landmarks that elevate communities,
+            inspire generations, and set global benchmarks in quality, design, and sustainability.</p>
+        </div>
+        <div class="vm-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="vm-card-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 24 L14 4 L24 24 Z" stroke="#C9A84C" stroke-width="2" fill="none" />
+              <path d="M9 24 L14 14 L19 24" stroke="#C9A84C" stroke-width="1.5" fill="none" />
+            </svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To deliver exceptional living experiences through innovative design, uncompromising quality, and a
+            people-first approach. We build not just homes — we build futures, legacies, and lasting relationships with
+            every family we serve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEADERSHIP ========== -->
+  <section class="section leadership-section" id="leadership">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="overline">The People Behind The Vision</p>
+        <h2 class="section-title">Our Leadership</h2>
+        <p class="section-subtitle">Guided by experience, driven by passion</p>
+      </div>
+      <div class="leaders-grid">
+        <div class="leader-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="leader-avatar" style="padding:0;">
+            <img src="amar_kumar_ram.png" alt="Amar Kumar Ram – CEO" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+          </div>
+          <h3 class="leader-name">Amar Kumar Ram</h3>
+          <p class="leader-role">Chief Executive Officer</p>
+          <p class="leader-bio">A visionary leader with decades of experience in real estate, Amar Kumar Ram steers A&amp;R Group's strategic direction, transforming bold ideas into landmark developments across India.</p>
+        </div>
+        <div class="leader-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="leader-avatar" style="padding:0;">
+            <img src="hritick_shaw.jpg" alt="Hritick Shaw – Managing Director" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+          </div>
+          <h3 class="leader-name">Hritick Shaw</h3>
+          <p class="leader-role">Managing Director</p>
+          <p class="leader-bio">A dynamic leader with a sharp business acumen, Hritick drives A&amp;R Group's strategic growth and operations, bringing fresh energy and modern vision to the company's legacy.</p>
+        </div>
+        <div class="leader-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="leader-avatar" style="padding:0;">
+            <img src="arpan_kabiraj.jpg" alt="Arpan Kabiraj – CFO" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+          </div>
+          <h3 class="leader-name">Arpan Kabiraj</h3>
+          <p class="leader-role">Chief Financial Officer</p>
+          <p class="leader-bio">With a keen eye for financial strategy and risk management, Arpan ensures A&amp;R Group's growth is sustainable, profitable, and built on a foundation of fiscal excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CORE VALUES ========== -->
+  <section class="section values-section" id="core-values">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <h2 class="section-title">Core Values</h2>
+        <p class="section-subtitle">The principles that guide every decision</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="value-icon">🏛️</span>
+          <h4>Quality First</h4>
+          <p>Every material, every joint, every finish — meticulously selected and executed to exceed industry
+            standards.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="value-icon">🤝</span>
+          <h4>Transparency</h4>
+          <p>Open communication, honest pricing, and clear documentation at every stage of your home-buying journey.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="value-icon">🌿</span>
+          <h4>Sustainability</h4>
+          <p>Green-certified construction, energy-efficient design, and responsible development for a better tomorrow.
+          </p>
+        </div>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="value-icon">💡</span>
+          <h4>Innovation</h4>
+          <p>Smart-home technology, modern architecture, and forward-thinking design that anticipates how people live.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="about-cta" id="about-cta">
+    <div class="container" data-aos="fade-up">
+      <h2>Ready to Find Your Dream Home?</h2>
+      <p>Explore our latest projects or get in touch with our team to start your journey with A&amp;R Group.</p>
+      <a href="index.html#projects" class="btn-primary" id="btn-explore-projects">EXPLORE PROJECTS</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="footer-contact-bar">
+      <div class="contact-col">
+        <p class="contact-label">MAIL</p>
+        <a href="mailto:arrealrstate@gmail.com" class="contact-value" id="footer-email">arrealrstate@gmail.com</a>
+      </div>
+      <div class="contact-col">
+        <p class="contact-label">CALL</p>
+        <a href="tel:+919836321215" class="contact-value" id="footer-phone">+91 9836321215</a>
+      </div>
+      <div class="contact-col">
+        <p class="contact-label">SOCIAL</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon" id="social-facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" class="social-icon" id="social-linkedin" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="#" class="social-icon" id="social-youtube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff" />
+            </svg>
+          </a>
+          <a href="#" class="social-icon" id="social-instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-logo">
+        <span class="logo-ar">A<span class="logo-at">&amp;</span>R</span>
+        <span class="logo-group">GROUP</span>
+      </div>
+      <div class="footer-links">
+        <a href="disclaimer.html" id="footer-disclaimer">Disclaimer</a>
+        <a href="privacy-policy.html" id="footer-privacy">Privacy Policy</a>
+        <a href="terms-of-use.html" id="footer-terms">Terms Of Use</a>
+        <a href="contact.html" id="footer-contact">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 A&amp;R Group. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ---- AOS Init ---- */
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ once: true, offset: 80, duration: 800, easing: 'ease-out-cubic' });
+      }
+
+      /* ---- Header scroll effect ---- */
+      const header = document.getElementById('header');
+      function onScroll() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      /* ---- Hamburger / mobile nav ---- */
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('main-nav');
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', () => {
+          nav.classList.toggle('open');
+          const spans = hamburger.querySelectorAll('span');
+          const isOpen = nav.classList.contains('open');
+          spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
+          spans[1].style.opacity = isOpen ? '0' : '1';
+          spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+        });
+        nav.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+          });
+        });
+      }
+
+      /* ---- Scroll to top ---- */
+      const scrollTopBtn = document.getElementById('scroll-top-btn');
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      /* ---- Smooth anchor scrolling ---- */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
